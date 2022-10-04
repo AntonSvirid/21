@@ -16,7 +16,7 @@ public class ArraySorterTest {
         for (int i = 0; i < array.length; i++) {
             if (array[i] != expected[i]) {
                 fail();     // вызов ошибки при несовпадении данных
-            }               // метод фэил из библ Assert
+            }               // метод fail из библ Assert
         }
     }
 

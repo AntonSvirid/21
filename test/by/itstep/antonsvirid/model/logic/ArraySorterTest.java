@@ -1,23 +1,47 @@
 package by.itstep.antonsvirid.model.logic;
 
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
 public class ArraySorterTest {
+
+    private int[] array;     // создание переменной как (финал) бефоКласс - static
+                             // для просто бефо - без статик
+//    @BeforeClass        // глобальная настройка
+//    public static void initGlobal(){
+//        array = new int[]{7, 2, 3, 8, 7, 5};
+//}
+//    @AfterClass
+//    public static void destroyGlobal(){
+//        array = null;
+//    }
+
+    @Before             // может быть сколько угодно таких методов для чего-либо одного
+    public void init() {
+        array = new int[]{7, 2, 3, 8, 7, 5};
+    }
+
+    @After          // локальная настройка - обнуление изменений после каждого тест-кейса
+    public void destroy() {
+        array = null;
+    }
+
     @Test
     public void testBubbleSortAsc() {
 
-        int[] array = {7, 2, 3, 8, 7, 5};
         int[] expected = {2, 3, 5, 7, 7, 8};
 
         ArraySorter.bubbleSortAsc(array);
 
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != expected[i]) {
-                fail();     // вызов ошибки при несовпадении данных
-            }               // метод fail из библ Assert
-        }
+
+//        for (int i = 0; i < array.length; i++) {
+//            if (array[i] != expected[i]) {
+//                fail();     // вызов ошибки при несовпадении данных
+//            }               // метод fail из библ Assert
+//        }
+        // замена кода выше:
+        assertArrayEquals(expected, array); //  готоый метод сравнения массива
     }
 
     @Test(expected = RuntimeException.class)        // негативный тест-кейс
@@ -35,7 +59,6 @@ public class ArraySorterTest {
     @Test
     public void bubbleSortDescTest() {
 
-        int[] array = {7, 2, 3, 8, 7, 5};
         int[] expected = {8, 7, 7, 5, 3, 2};
 
         ArraySorter.bubbleSortDesc(array);
@@ -62,7 +85,6 @@ public class ArraySorterTest {
     @Test
     public void testSelectedSortAsc() {
 
-        int[] array = {7, 2, 3, 8, 7, 5};
         int[] expected = {2, 3, 5, 7, 7, 8};
 
         ArraySorter.selectedSortAsc(array);
@@ -85,4 +107,5 @@ public class ArraySorterTest {
 
         ArraySorter.selectedSortAsc(new int[0]);
     }
+
 }

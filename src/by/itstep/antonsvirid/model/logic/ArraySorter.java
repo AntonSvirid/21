@@ -26,7 +26,7 @@ public class ArraySorter {
 
     public static void bubbleSortAsc(int[] array) { // по возрастанию - ASC
 
-        int count = 0;          // debug - счётчик дебага, инициализация
+ //       int count = 0;          // debug - счётчик дебага, инициализация
 
         if (array == null) {
             throw new RuntimeException();
@@ -34,7 +34,7 @@ public class ArraySorter {
 
         for (int j = 0; j < array.length - 1; j++) {
             for (int i = 0; i < array.length - 1 - j; i++) {
-                count++;                //  debug - счётчик дебага во внутренний цикл
+    //            count++;                //  debug - счётчик дебага во внутренний цикл
                 if (array[i] > array[i + 1]) {
                     int t = array[i];
                     array[i] = array[i + 1];
@@ -42,11 +42,11 @@ public class ArraySorter {
                 }
             }
         }
-        System.out.println("count = " + count);      //debug - визуализация
+  //      System.out.println("count = " + count);      //debug - визуализация
     }
 
     public static void bubbleSortDesc(int[] array) { // по убыванию - Desc
-        int count = 0;          // debug - счётчик дебага, инициализация
+  //      int count = 0;          // debug - счётчик дебага, инициализация
 
         if (array == null) {
             throw new RuntimeException();
@@ -54,7 +54,7 @@ public class ArraySorter {
 
         for (int j = 0; j < array.length - 1; j++) {
             for (int i = 0; i < array.length - 1 - j; i++) {
-                count++;                //  debug - счётчик дебага во внутренний цикл
+   //             count++;                //  debug - счётчик дебага во внутренний цикл
                 if (array[i] < array[i + 1]) {
                     int t = array[i];
                     array[i] = array[i + 1];
@@ -62,7 +62,7 @@ public class ArraySorter {
                 }
             }
         }
-        System.out.println("count = " + count);      //debug - визуализация
+  //      System.out.println("count = " + count);      //debug - визуализация
     }
 
 
